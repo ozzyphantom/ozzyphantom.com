@@ -1,16 +1,69 @@
 ---
+import Section from '../components/astro/Section.astro';
+import ProgressIndicator from '../components/astro/ProgressIndicator.astro';
+import { type SectionData } from '../lib/types';
+import '../components/astro/SmoothScroll/smoothScroll.css';
 
+// Define your sections data
+const sections: SectionData[] = [
+  {
+    id: "section1",
+    color: "#f1fffa",
+    title: "Welcome",
+    content: "Scroll down to explore our minimalist design approach.",
+    textColor: "#000000",
+  },
+  {
+    id: "section2",
+    color: "#f3b3a6",
+    title: "Our Vision",
+    content: "Simplicity is the ultimate sophistication."
+  },
+  {
+    id: "section3",
+    color: "#429ea6",
+    title: "Our Work",
+    content: "Focused on creating meaningful experiences."
+  },
+  {
+    id: "section4",
+    color: "#104f55",
+    title: "Get in Touch",
+    content: "Let's create something amazing together."
+  },
+  {
+    id: "section5",
+    color: "#2d1e2f",
+    title: "Welcome",
+    content: "Scroll down to explore our minimalist design approach."
+  },
+  
+];
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Scroll Landing Page</title>
+</head>
+<body>
+    <div class="container">
+        <ProgressIndicator />
+        
+        {sections.map(section => (
+            <Section 
+                id={section.id}
+                color={section.color}
+                title={section.title}
+                content={section.content}
+                textColor={section.textColor}
+                fontFamily="{section.fontFamily}"
+            />
+        ))}
+    </div>
+    
+    <script src="../components/astro/SmoothScroll/smoothScroll.ts"></script>
+</body>
 </html>

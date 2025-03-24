@@ -1,0 +1,31 @@
+---
+import Section from '../Section.astro';
+import ProgressIndicator from '../ProgressIndicator.astro';
+import './smoothScroll.css';
+
+// Define your sections data
+const sections = [
+  {
+    id: "section1",
+    color: "#3498db",
+    title: "Welcome",
+    content: "Scroll down to explore our minimalist design approach."
+  },
+  // Add other sections...
+];
+---
+
+<div class="container">
+  <ProgressIndicator />
+  
+  {sections.map(section => (
+    <Section 
+      id={section.id}
+      color={section.color}
+      title={section.title}
+      content={section.content}
+    />
+  ))}
+</div>
+
+<script src="./smoothScroll.ts"></script>
